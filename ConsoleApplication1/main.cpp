@@ -1,15 +1,24 @@
 
 
 #include "Game.h"
+#include "Player.h"
 
 void startmenu()
 {
-	std::cout << "--- Main Menu ---" << "\n";
-	std::cout << "\nIf you need help type 'help' \n\n";
-}
+	std::string name;
+	std::cout << "--- Starting Game ---" << "\n";
+	std::cout << "What is your name traveler? \n";
+	std::cin >> name;
+	Game game;
+	game.playername = name;
+	std::cout << "Hello " << game.playername << "\n";
+    std::cout << "\nIf you need help type 'help' \n\n";
+}	
+
 int main()
 {
 	Game game;
+	Player player;
 	game.update();
 	startmenu();
 	bool quit = false;
@@ -17,6 +26,7 @@ int main()
 	//game loop
 	while (!quit)
 	{
+		std::cout << "--- Main Menu ---" << "\n";
 		std::cout << "Input here: ";
 		std::cin >> choice;
 
@@ -25,6 +35,11 @@ int main()
 			std::cout << "\nGoodbye \n";
 			quit = true;
 
+		}
+		else if (choice == "player stats" || choice == "p" || choice == "stats")
+		{
+			std::cout << "-----Caracter stats-----" << "\n";
+			std::cout << player.toString();
 		}
 		else
 		{
