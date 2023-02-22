@@ -4,6 +4,7 @@
 #include<fstream>
 #include"State.h"
 #include"Player.h"
+#include<iomanip>
 
 class Game
 {

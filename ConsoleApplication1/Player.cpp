@@ -1,35 +1,60 @@
 #include "Player.h"
 
+void Player::updateStats()
+{
+
+	this->hpmax = 5 * this->level;
+
+	this->hp = this->hpmax;
+
+}
+
 Player::Player(std::string name)
 {
 	this->name = name;
 	this->level = 1;
 	this->exp = 0;
-	this->expnext = 100;
-	this->hp = 10;
-	this->hpmax = 10;
+	this->expnext = 55;
+	this->gold = 0;
 
-	this->strength = 1;
-	this->vitality = 1;
-	this->agility = 1;
-	this->dexterity = 1;
-	this->intellegence = 1;
-
-	this->stamina = 10;
-	this->staminamax = 10;
-	this->defence = 1;
-	this->hitchance = 1.f;
-	this->dodgechance = 1.f;
-	this->critchance = 1.f;
-	this->mana = 10;
-	this->manamax = 10;
-	this->magicfind = 1.f;
-
-
+	this->updateStats();
 }
-
+const std::string Player::toString()
+	{
+		std::stringstream ss;
+		ss //<< "Name: " << this->name << "\n"
+		   << "Level: " << this->level << "\n"
+		   << "Exp: " << this->exp << " / " << this->expnext << "\n"
+		   << "Health: " << this->hp << " / " << this->hpmax << "\n"
+		   << "Gold: " << this->gold
+		   << "\n";
+		return ss.str();
+	}
 Player::Player()
 {
+}
+
+const std::string Player::getMenuBar()
+{
+	std::stringstream ss;
+	ss  << "Name: " << this->name << " | "
+		<< "Level: " << this->level << " | "
+		<< "Exp: " << this->exp << " / " << this->expnext << " | "
+		<< "Hp: " << this->hp << " / " << this->hpmax;
+	return ss.str();
+}
+
+bool Player::updatelevel()
+{
+	if (this->exp >= this->expnext)
+	{
+		this->level++;
+		this->exp -= this->expnext;
+		this->expnext = (50 / 3) * (pow(this->level, 3) - 6 * pow(this->level, 2) + (this->level * 17) - 12);
+		this->hp = this->hpmax;
+		return true;
+	}
+	return false;
 }
 
 Player::~Player()
