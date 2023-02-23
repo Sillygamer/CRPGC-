@@ -1,3 +1,9 @@
 1.0.0 changes
--game loop created
--choices do stuff
+*game loop created
+*choices do stuff
+
+completed 2/23/23 12:43pm
+
+1.0.1 changes
+-diferent states
+-fix name bug

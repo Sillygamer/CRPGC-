@@ -22,7 +22,7 @@ Player::Player(std::string name)
 const std::string Player::toString()
 	{
 		std::stringstream ss;
-		ss //<< "Name: " << this->name << "\n"
+		ss << "Name: " << this->name << "\n"
 		   << "Level: " << this->level << "\n"
 		   << "Exp: " << this->exp << " / " << this->expnext << "\n"
 		   << "Health: " << this->hp << " / " << this->hpmax << "\n"
@@ -51,7 +51,7 @@ bool Player::updatelevel()
 		this->level++;
 		this->exp -= this->expnext;
 		this->expnext = (50 / 3) * (pow(this->level, 3) - 6 * pow(this->level, 2) + (this->level * 17) - 12);
-		this->hp = this->hpmax;
+		this->updateStats();
 		return true;
 	}
 	return false;

@@ -1,44 +1,33 @@
 #include "Game.h"
 Game::Game()
 {
+	quit = false;
+
 	this->player = new Player(playername);
+
+	this->states.push(new GameState(this->player, &this->states));
 }
 
 Game::~Game()
 {
 	delete this->player;
+
+	while (!this->states.empty())
+	{
+		delete this->states.top();
+		this->states.pop();
+	}
 }
 
 void Game::update() 
 {
-	std::string Name;
-	Name = playername;
-	bool quit = false;
-	std::string choice;
-	while (!quit)
+	this->states.top()->update();
+	if (this->states.top()->getQuit())
 	{
-		std::cout << "\n--- Main Menu ---" << "\n";
-
-		std::cout << this->player->getMenuBar() << "\n";
-		std::cout << "------------------------------------------------------" << "\n";
-		std::cout << "Input here: ";
-		std::cin >> choice;
-
-		if (choice == "quit" || choice == "q" )
-		{
-			std::cout << "\nGoodbye \n";
-			quit = true;
-
-		}
-		else if (choice == "player stats" || choice == "p" || choice == "stats" )
-		{
-			std::cout << "-----Caracter stats-----" << "\n";
-			std::cout << player->toString();
-		}
-		else
-		{
-			std::cout << "\nI could not find what you are looking for\n";
-			std::cout << "Remember to use lower case\n";
-		}
+		delete this->states.top();
+		this->states.pop();
 	}
+
+	if (this->states.empty())
+		this->quit = true;
 }
