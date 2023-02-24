@@ -1,5 +1,5 @@
 #include "MainMenuState.h"
-
+#include "Player.h"
 
 MainMenuState::MainMenuState(Player* player, std::stack<State*>* states)
 {

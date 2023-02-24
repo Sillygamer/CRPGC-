@@ -4,6 +4,8 @@
 #include<iostream>
 #include<vector>
 #include<sstream>
+#include "Game.h"
+
 class Player
 {
 private:
@@ -17,8 +19,9 @@ private:
 
 	void updateStats();
 public:
-	std::string name = "Andrea";
-	Player(std::string name);
+	std::string& Playername = Game::playername;
+	std::string name;
+	Player(std::string name, std::string& playername);
 	virtual ~Player();
 	const std::string toString();
 	Player();

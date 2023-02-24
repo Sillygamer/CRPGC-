@@ -19,7 +19,7 @@ public:
 	Game();
 	virtual ~Game();
 	void update();
-	std::string playername;
+	static std::string playername;
 	bool quit = false;
 };
 

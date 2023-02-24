@@ -10,7 +10,7 @@ class GameState :
     public State
 {
 private:
-    Player* player;
+    Player * player;
     std::stack<State*> *states;
 
 public:

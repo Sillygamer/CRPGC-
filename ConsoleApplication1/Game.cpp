@@ -1,9 +1,10 @@
 #include "Game.h"
+#include"Player.h"
 Game::Game()
 {
 	quit = false;
 
-	this->player = new Player(playername);
+	this->player = new Player(playername, playername);
 
 	this->states.push(new GameState(this->player, &this->states));
 }
