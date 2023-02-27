@@ -4,7 +4,7 @@ Game::Game()
 {
 	quit = false;
 
-	this->player = new Player(playername, playername);
+	this->player = nullptr;
 
 	this->states.push(new GameState(this->player, &this->states));
 }

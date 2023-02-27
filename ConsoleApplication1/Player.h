@@ -9,6 +9,7 @@
 class Player
 {
 private:
+	std::string bio;
 	int hp;
 	int hpmax;
 	int level;
@@ -21,7 +22,7 @@ private:
 public:
 	std::string& Playername = Game::playername;
 	std::string name;
-	Player(std::string name, std::string& playername);
+	Player(std::string name, std::string& playername,std::string bio);
 	virtual ~Player();
 	const std::string toString();
 	Player();

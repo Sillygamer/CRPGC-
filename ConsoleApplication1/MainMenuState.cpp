@@ -1,9 +1,9 @@
 #include "MainMenuState.h"
 #include "Player.h"
 
-MainMenuState::MainMenuState(Player* player, std::stack<State*>* states)
+MainMenuState::MainMenuState(Player*& player, std::stack<State*>* states): player(player)
 {
-	this->player = player;
+
 	this->states = states;
 }
 
@@ -39,7 +39,14 @@ void MainMenuState::updatemenu()
 	}
 	else if (choice == "start" || choice == "play" || choice == "p")
 	{
-		this->states->push(new GameState(this->player, this->states));
+		if(this->player != nullptr){
+			this->states->push(new GameState(this->player, this->states));	
+		}
+		else { std::cout << "Create a character first\n"; }
+	}
+	else if (choice == "create character" || choice == "create player" || choice == "c")
+	{
+		this->states->push(new CharacterCreatorState(this->player, this->states));
 	}
 	else
 	{

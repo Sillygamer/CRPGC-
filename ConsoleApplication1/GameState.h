@@ -10,11 +10,11 @@ class GameState :
     public State
 {
 private:
-    Player * player;
+    Player *& player;
     std::stack<State*> *states;
 
 public:
-    GameState( Player* player, std::stack<State*> *states);
+    GameState( Player*& player, std::stack<State*> *states);
     virtual ~GameState();
     virtual void update();
 

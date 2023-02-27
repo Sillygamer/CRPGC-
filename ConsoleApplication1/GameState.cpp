@@ -1,9 +1,8 @@
 #include "GameState.h"
 
 
-GameState::GameState( Player* player, std::stack<State*> *states)
+GameState::GameState( Player*& player, std::stack<State*> *states) : player(player)
 {
-	this->player = player;
 	this->states = states;
 }
 

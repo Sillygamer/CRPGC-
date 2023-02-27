@@ -9,9 +9,10 @@ void Player::updateStats()
 
 }
 
-Player::Player(std::string name, std::string& Playername)
+Player::Player(std::string name, std::string& Playername, std::string bio)
 {
 	this->name = Playername;
+	this->bio = bio;
 	this->level = 1;
 	this->exp = 0;
 	this->expnext = 55;
@@ -22,7 +23,8 @@ Player::Player(std::string name, std::string& Playername)
 const std::string Player::toString()
 	{
 		std::stringstream ss;
-		ss << "Name: " << Playername << "\n"
+		ss << "Name: " << Playername << "\n\n"
+		   << "Bio: " << this->bio << "\n\n"
 		   << "Level: " << this->level << "\n"
 		   << "Exp: " << this->exp << " / " << this->expnext << "\n"
 		   << "Health: " << this->hp << " / " << this->hpmax << "\n"

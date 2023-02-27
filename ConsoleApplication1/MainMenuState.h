@@ -6,17 +6,18 @@
 #include<stack>
 #include "GameState.h"
 #include "Game.h"
+#include "CharacterCreatorState.h"
 
 class MainMenuState
 	: public State
 {
 private:
-	Player* player;
+	Player*& player;
 	std::stack<State*>* states;
 public:
-	MainMenuState(Player* player, std::stack<State*>* states);
+	MainMenuState(Player*& player, std::stack<State*>* states);
 	virtual ~MainMenuState();
-	void update();
+	void update(); 
 	void printmenu();
 	void updatemenu();
 	std::string choice;
