@@ -5,5 +5,11 @@
 completed 2/23/23 12:43pm
 
 1.0.1 changes
--diferent states
--fix name bug
+*diferent states
+*fix name bug
+
+completed 2/24/23 12:35pm
+
+1.0.2 changes
+-multiple characters
+-bug fixes

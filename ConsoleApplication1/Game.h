@@ -12,11 +12,11 @@ class Game
 {
 private:
 	std::stack<State*> states;
-
-
-	Player* player;
+	unsigned activecharacter;
+	std::vector<Player*>playerlist;
+ 
 public:
-	Game();
+	Game(unsigned activecharacter);
 	virtual ~Game();
 	void update();
 	static std::string playername;

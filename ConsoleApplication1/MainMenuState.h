@@ -12,10 +12,12 @@ class MainMenuState
 	: public State
 {
 private:
-	Player*& player;
+	std::vector<Player*>* playerlist;
+
+	unsigned& activecharacter;
 	std::stack<State*>* states;
 public:
-	MainMenuState(Player*& player, std::stack<State*>* states);
+	MainMenuState(std::vector<Player*>* playerlist,  unsigned& activecharacter, std::stack<State*>* states);
 	virtual ~MainMenuState();
 	void update(); 
 	void printmenu();

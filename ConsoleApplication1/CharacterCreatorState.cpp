@@ -33,7 +33,7 @@ void CharacterCreatorState::update()
 
 void CharacterCreatorState::printmenu()
 {
-
+	system("CLS");
 	std::cout << "------Character Menu-----" << "\n\n"
 		<< "type what you would like to do" << "\n"
 		<< "if you need help type help" << "\n\n";
@@ -45,17 +45,21 @@ void CharacterCreatorState::updatemenu()
 {
 	if (choice == "quit" || choice == "q")
 	{
+		system("CLS");
 		std::cout << "\nGoodbye \n";
 		this->setQuit(true);
 	}
 	else if (choice == "create character" || choice == "create player" || choice == "c")
 	{
+		system("CLS");
 		this->createCharacter();
+		system("PAUSE");
 	}
 	else
 	{
 		std::cout << "\nI could not find what you are looking for\n";
 		std::cout << "Remember to use lower case\n";
+		system("PAUSE");
 	}
 }
 

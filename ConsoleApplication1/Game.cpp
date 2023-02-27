@@ -1,18 +1,20 @@
 #include "Game.h"
 #include"Player.h"
-Game::Game()
+#include "MainMenuState.h"
+Game::Game(unsigned activecharacter)
 {
 	quit = false;
+	this->activecharacter = 0;
 
-	this->player = nullptr;
-
-	this->states.push(new GameState(this->player, &this->states));
+	this->states.push(new MainMenuState(&this->playerlist,this->activecharacter, &this->states));
 }
 
 Game::~Game()
 {
-	delete this->player;
-
+	for (size_t i = 0; i < this->playerlist.size(); i++)
+	{
+		delete this->playerlist[i];
+	}
 	while (!this->states.empty())
 	{
 		delete this->states.top();
