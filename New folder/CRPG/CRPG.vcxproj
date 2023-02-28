@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{04d9e589-c3fe-49f7-8395-aff12553a1d3}</ProjectGuid>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <ProjectGuid>{1063c9a5-ec23-4b6d-83dc-15334388c24c}</ProjectGuid>
+    <RootNamespace>CRPG</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,25 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CharacterCreatorState.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="CRPG.cpp" />
+    <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="State.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CharacterCreatorState.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameState.h" />
-    <ClInclude Include="main.h" />
-    <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="GameEngine.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="State.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Changelog.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
