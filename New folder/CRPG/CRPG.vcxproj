@@ -141,10 +141,12 @@
   <ItemGroup>
     <ClCompile Include="CRPG.cpp" />
     <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="Location.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="Location.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
