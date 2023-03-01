@@ -10,5 +10,13 @@ private:
 public:
 	int ID;
 	string name;
+	string Description;
+	//int IDlocationnorth;
+	//int IDlocationsouth;
+	//int IDlocationwest;
+	//int IDlocationeast;
+	Location();
+	virtual ~Location();
+	
 };
 
