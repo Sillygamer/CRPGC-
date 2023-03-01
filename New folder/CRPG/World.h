@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Location.h"
 #include <list>
-
+#include <algorithm>
 using namespace std;
 
 class World
@@ -12,8 +12,8 @@ private:
 public:
 	string WorldName = "Candyland";
 	list<Location> locations;
+
 	World();
-	World(list<Location> locations);
 	virtual ~World();
 	void PopulateLocations();
 
@@ -23,5 +23,12 @@ public:
 	int LOCATION_ID_CANDY_CASTLE = 4;
 	int LOCATION_ID_CANDY_STORE = 5;
 	int LOCATION_ID_LICORICE_FOREST = 6;
+	Location GingerbreadHouse;
+	Location CandyStore;
+	Location CandyCastle;
+	Location CandyVillage;
+	Location CandyCaneForest;
+	Location LicoriceForest;
+	void ListLocations();
 };
 

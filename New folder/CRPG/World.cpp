@@ -2,10 +2,6 @@
 
 World::World()
 {
-}
-
-World::World(list<Location> locations)
-{
 
 
 	PopulateLocations();
@@ -18,7 +14,6 @@ World::~World()
 
 void World::PopulateLocations()
 {
-	Location GingerbreadHouse;
 	GingerbreadHouse.ID = LOCATION_ID_GINGERBREAD_HOUSE;
 	GingerbreadHouse.name = "Gingerbread house";
 	GingerbreadHouse.Description = 
@@ -26,34 +21,28 @@ void World::PopulateLocations()
 		"It smells delicious its tempting to eat"
 		" but then you wouldn't have a place to stay.";
 
-
-
-	Location CandyCaneForest;
 	CandyCaneForest.ID = LOCATION_ID_CANDYCANE_FOREST;
 	CandyCaneForest.name = "The Candy Cane Forest";
 	CandyCaneForest.Description = 
 		"Tall Candycane Trees as far as the eye can see";
 	
-
-	Location CandyVillage;
 	CandyVillage.ID = LOCATION_ID_CANDY_VILLAGE;
 	CandyVillage.name = "Candy Village";
     CandyVillage.Description =
 		"The bussling heart of candy land, although it's seen better days...";
 
-	Location CandyCastle;
 	CandyCastle.ID = LOCATION_ID_CANDY_CASTLE;
 	CandyCastle.name = "Candy Castle";
 	CandyCastle.Description = 
 		"The castle where the great King Candy lives.. or used to.";
 
-	Location CandyStore;
+
 	CandyStore.ID = LOCATION_ID_CANDY_STORE;
 	CandyStore.name = "Candy Store";
 	CandyStore.Description =
 		"The candy store where you can get all your candy needs";
 
-	Location LicoriceForest;
+
 	LicoriceForest.ID = LOCATION_ID_LICORICE_FOREST;
 	LicoriceForest.name = "Licorice Forest";
 	LicoriceForest.Description = 
@@ -67,7 +56,6 @@ void World::PopulateLocations()
 	CandyCaneForest.IDlocationwest = LOCATION_ID_CANDY_STORE;
 	CandyCaneForest.IDlocationsouth = LOCATION_ID_GINGERBREAD_HOUSE;	
 	*/
-
 	locations.push_front(GingerbreadHouse);
 	locations.push_front(CandyCaneForest);
 	locations.push_front(CandyVillage);
@@ -75,3 +63,16 @@ void World::PopulateLocations()
 	locations.push_front(CandyStore);
 	locations.push_front(LicoriceForest);
 }
+
+void World::ListLocations()
+{
+	cout << "These are the Locations in the world,\n" 
+		<< GingerbreadHouse.name << "\n"
+		<< CandyCaneForest.name << "\n"
+		<< CandyVillage.name << "\n"
+		<< CandyCastle.name << "\n"
+		<< CandyStore.name << "\n"
+		<< LicoriceForest.name << "\n\n";
+}
+
+
