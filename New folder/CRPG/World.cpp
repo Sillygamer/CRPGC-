@@ -26,9 +26,9 @@ void World::PopulateLocations()
 	CandyCaneForest.Description = 
 		"Tall Candycane Trees as far as the eye can see";
 	
-	CandyVillage.ID = LOCATION_ID_CANDY_VILLAGE;
-	CandyVillage.name = "Candy Village";
-    CandyVillage.Description =
+	GumdropVillage.ID = LOCATION_ID_GUMDROP_VILLAGE;
+	GumdropVillage.name = "Gumdrop Village";
+	GumdropVillage.Description =
 		"The bussling heart of candy land, although it's seen better days...";
 
 	CandyCastle.ID = LOCATION_ID_CANDY_CASTLE;
@@ -56,23 +56,36 @@ void World::PopulateLocations()
 	CandyCaneForest.IDlocationwest = LOCATION_ID_CANDY_STORE;
 	CandyCaneForest.IDlocationsouth = LOCATION_ID_GINGERBREAD_HOUSE;	
 	*/
-	locations.push_front(GingerbreadHouse);
-	locations.push_front(CandyCaneForest);
-	locations.push_front(CandyVillage);
-	locations.push_front(CandyCastle);
-	locations.push_front(CandyStore);
-	locations.push_front(LicoriceForest);
+	locations.push_back(GingerbreadHouse);
+	locations.push_back(CandyStore);
+	locations.push_back(CandyCastle);
+	locations.push_back(GumdropVillage);
+	locations.push_back(CandyCaneForest);
+	locations.push_back(LicoriceForest);
 }
 
 void World::ListLocations()
 {
-	cout << "These are the Locations in the world,\n" 
-		<< GingerbreadHouse.name << "\n"
-		<< CandyCaneForest.name << "\n"
-		<< CandyVillage.name << "\n"
-		<< CandyCastle.name << "\n"
-		<< CandyStore.name << "\n"
+	cout << " These are the Locations in the world...\n\n " 
+		<< GingerbreadHouse.name << "\n "
+		<< CandyCaneForest.name << "\n "
+		<< GumdropVillage.name << "\n "
+		<< CandyCastle.name << "\n "
+		<< CandyStore.name << "\n "
 		<< LicoriceForest.name << "\n\n";
+}
+
+Location World::Locationbyid(int id)
+{
+	for(Location loc : locations)
+	{
+		if (loc.ID == id) 
+		{
+			return loc;
+		}
+		
+	}
+
 }
 
 

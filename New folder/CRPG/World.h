@@ -3,6 +3,7 @@
 #include "Location.h"
 #include <list>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 class World
@@ -11,7 +12,8 @@ private:
 
 public:
 	string WorldName = "Candyland";
-	list<Location> locations;
+	vector<Location> locations;
+
 
 	World();
 	virtual ~World();
@@ -19,16 +21,17 @@ public:
 
 	int LOCATION_ID_GINGERBREAD_HOUSE = 1;
 	int LOCATION_ID_CANDYCANE_FOREST = 2;
-	int LOCATION_ID_CANDY_VILLAGE = 3;
+	int LOCATION_ID_GUMDROP_VILLAGE = 3;
 	int LOCATION_ID_CANDY_CASTLE = 4;
 	int LOCATION_ID_CANDY_STORE = 5;
 	int LOCATION_ID_LICORICE_FOREST = 6;
 	Location GingerbreadHouse;
 	Location CandyStore;
 	Location CandyCastle;
-	Location CandyVillage;
+	Location GumdropVillage;
 	Location CandyCaneForest;
 	Location LicoriceForest;
 	void ListLocations();
+	Location Locationbyid(int id);
 };
 
