@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-
+#include"Location.h"
 using namespace std;
 class Location
 {
@@ -17,6 +17,5 @@ public:
 	//int IDlocationeast;
 	Location();
 	virtual ~Location();
-	
 };
 
