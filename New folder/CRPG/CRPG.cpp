@@ -4,6 +4,23 @@
 #include "Location.h"
 #include "World.h"
 #include <string>
+
+static void Parseinput(string input)
+{
+    if (input == "help"||input == "h")
+    {
+        cout << "help is coming stay tuned and stay alive!!!\n";
+    }
+    else if (input == "look"|| input == "l")
+    {
+
+    }
+    else
+    {
+        cout << "not a valid input! if you need help type 'help'.\n";
+    }
+    
+}
 int main()
 {
     Player player;
@@ -25,9 +42,8 @@ int main()
         {
             break;
         }
-        else
-        {
-            cout << "not a valid input. if you need help type 'help'\n";
-        }
+        Parseinput(choice);
     }
+
+
 }
