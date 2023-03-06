@@ -48,14 +48,24 @@ void World::PopulateLocations()
 	LicoriceForest.Description = 
 		"A dark forest of licorice. It never seems to turn day here...\n\n";
 	
-	/*
+	
 	GingerbreadHouse.IDlocationnorth = LOCATION_ID_CANDYCANE_FOREST;
 
-	CandyCaneForest.IDlocationnorth = LOCATION_ID_CANDY_VILLAGE;
-	CandyCaneForest.IDlocationeast = LOCATION_ID_LICORICE_FOREST;
-	CandyCaneForest.IDlocationwest = LOCATION_ID_CANDY_STORE;
-	CandyCaneForest.IDlocationsouth = LOCATION_ID_GINGERBREAD_HOUSE;	
-	*/
+	CandyCaneForest.IDlocationnorth = LOCATION_ID_GUMDROP_VILLAGE;
+	CandyCaneForest.IDlocationsouth = LOCATION_ID_GINGERBREAD_HOUSE;
+
+	GumdropVillage.IDlocationnorth = LOCATION_ID_CANDY_CASTLE;
+	GumdropVillage.IDlocationeast = LOCATION_ID_LICORICE_FOREST;
+	GumdropVillage.IDlocationsouth = LOCATION_ID_CANDYCANE_FOREST;
+	GumdropVillage.IDlocationwest = LOCATION_ID_CANDY_STORE;
+
+	LicoriceForest.IDlocationwest = LOCATION_ID_GUMDROP_VILLAGE;
+
+	CandyStore.IDlocationeast = LOCATION_ID_GUMDROP_VILLAGE;
+
+	CandyCastle.IDlocationsouth = LOCATION_ID_GUMDROP_VILLAGE;
+
+
 	locations.push_back(GingerbreadHouse);
 	locations.push_back(CandyStore);
 	locations.push_back(CandyCastle);
