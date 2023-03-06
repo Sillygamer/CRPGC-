@@ -5,7 +5,12 @@
 #include "World.h"
 #include <string>
 
-static void Parseinput(string input)
+static void displaycurrentlocation(Player player)
+{
+
+    cout << "\nYou are at " << player.currentlocation.name << "\n"<< player.currentlocation.Description;
+}
+static void Parseinput(string input, Player player)
 {
     if (input == "help"||input == "h")
     {
@@ -13,7 +18,7 @@ static void Parseinput(string input)
     }
     else if (input == "look"|| input == "l")
     {
-
+        displaycurrentlocation(player);
     }
     else
     {
@@ -21,6 +26,7 @@ static void Parseinput(string input)
     }
     
 }
+
 int main()
 {
     Player player;
@@ -30,19 +36,21 @@ int main()
     gameengine.Initialize();
    
     Location tmploc = world.Locationbyid(1);
+    player.moveto(world.Locationbyid(1));
    // cout << tmploc.name << "\n";
 
     while (true)
     {
         string choice;
         cout << "> ";
-        cin >> choice;
+        //cin >> choice;
+        getline(cin, choice);
         std::transform(choice.begin(), choice.end(), choice.begin(), ::tolower);
         if (choice == "quit"|| choice == "exit" || choice == "q")
         {
             break;
         }
-        Parseinput(choice);
+        Parseinput(choice, player);
     }
 
 

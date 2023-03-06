@@ -15,38 +15,38 @@ World::~World()
 void World::PopulateLocations()
 {
 	GingerbreadHouse.ID = LOCATION_ID_GINGERBREAD_HOUSE;
-	GingerbreadHouse.name = "Gingerbread house";
+	GingerbreadHouse.name = "The Gingerbread House";
 	GingerbreadHouse.Description = 
-		"The house you are allowed to stay in for the time being. "
-		"It smells delicious its tempting to eat"
-		" but then you wouldn't have a place to stay.";
+		"The house you are allowed to stay in for the time being.\n"
+		"It smells so delicious its tempting to eat,"
+		" but then you wouldn't have a place to stay.\n\n";
 
 	CandyCaneForest.ID = LOCATION_ID_CANDYCANE_FOREST;
 	CandyCaneForest.name = "The Candy Cane Forest";
 	CandyCaneForest.Description = 
-		"Tall Candycane Trees as far as the eye can see";
+		"Tall Candycane Trees as far as the eye can see\n\n";
 	
 	GumdropVillage.ID = LOCATION_ID_GUMDROP_VILLAGE;
 	GumdropVillage.name = "Gumdrop Village";
 	GumdropVillage.Description =
-		"The bussling heart of candy land, although it's seen better days...";
+		"The bussling heart of candy land, although it's seen better days...\n\n";
 
 	CandyCastle.ID = LOCATION_ID_CANDY_CASTLE;
 	CandyCastle.name = "Candy Castle";
 	CandyCastle.Description = 
-		"The castle where the great King Candy lives.. or used to.";
+		"The castle where the great King Candy lives.. or used to.\n\n";
 
 
 	CandyStore.ID = LOCATION_ID_CANDY_STORE;
 	CandyStore.name = "Candy Store";
 	CandyStore.Description =
-		"The candy store where you can get all your candy needs";
+		"The candy store where you can get all your candy needs\n\n";
 
 
 	LicoriceForest.ID = LOCATION_ID_LICORICE_FOREST;
 	LicoriceForest.name = "Licorice Forest";
 	LicoriceForest.Description = 
-		"A dark forest of licorice. It never seems to turn day here...";
+		"A dark forest of licorice. It never seems to turn day here...\n\n";
 	
 	/*
 	GingerbreadHouse.IDlocationnorth = LOCATION_ID_CANDYCANE_FOREST;
