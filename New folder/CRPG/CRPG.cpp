@@ -122,11 +122,11 @@ int main()
         {
             if (player.currentlocation.IDlocationwest != NULL)
             {
-                if (player.currentlocation.IDlocationwest == 6) 
+                if (player.currentlocation.ID == 6) 
                 {
                     player.moveto(world.GumdropVillage);
                 }//loc6
-                else if (player.currentlocation.IDlocationwest == 3) 
+                else if (player.currentlocation.ID == 3) 
                 {
                         player.moveto(world.CandyStore);
                 }//loc3
@@ -142,11 +142,11 @@ int main()
             if (player.currentlocation.IDlocationeast != NULL)
             {
 
-                if (player.currentlocation.IDlocationeast == 5) 
+                if (player.currentlocation.ID == 5) 
                 {
                     player.moveto(world.GumdropVillage);
                 }//loc5
-                else if (player.currentlocation.IDlocationeast == 3)
+                else if (player.currentlocation.ID == 3)
                 {
                         player.moveto(world.LicoriceForest);
                 }//loc3
