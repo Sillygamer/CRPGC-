@@ -141,14 +141,22 @@
   <ItemGroup>
     <ClCompile Include="CRPG.cpp" />
     <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="HealingPotion.cpp" />
+    <ClCompile Include="InventoryItem.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Weapons.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="HealingPotion.h" />
+    <ClInclude Include="InventoryItem.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Weapons.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

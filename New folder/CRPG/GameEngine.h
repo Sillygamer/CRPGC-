@@ -9,7 +9,7 @@ private:
 
 public:
 	World world;
-	 string version = "0.0.1";
+	 string version = "0.0.2";
 	 void Initialize();
 	GameEngine();
 	virtual ~GameEngine();
