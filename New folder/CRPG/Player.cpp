@@ -4,6 +4,14 @@ Player::Player()
 {
 	this->Name = Name;
 	this->currentlocation = currentlocation;
+	inventory = inventory;
+	quests = quests;
+	currenthp = currenthp;
+	maxhp = maxhp;
+	xp = xp;
+	level = level;
+	gold = gold;
+	xptonextlevel = (50 / 3) * (pow(this->level, 3) - 6 * pow(this->level, 2) + (this->level * 17) - 12);
 }
 
 Player::~Player()

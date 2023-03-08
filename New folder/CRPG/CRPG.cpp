@@ -57,6 +57,8 @@ int main()
     Location tmploc = world.Locationbyid(1);
     player.moveto(world.Locationbyid(1));
     cout << tmploc.name << "\n";
+    player.maxhp = 50;
+    player.currenthp = player.maxhp;
 
     while (true)
     {
