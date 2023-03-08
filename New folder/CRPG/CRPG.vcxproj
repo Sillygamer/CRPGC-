@@ -139,23 +139,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Creature.cpp" />
     <ClCompile Include="CRPG.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="HealingPotion.cpp" />
     <ClCompile Include="InventoryItem.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Location.cpp" />
+    <ClCompile Include="LootItem.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerQuest.cpp" />
+    <ClCompile Include="Quest.cpp" />
+    <ClCompile Include="QuestCompletionItem.cpp" />
     <ClCompile Include="Weapons.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Creature.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="HealingPotion.h" />
     <ClInclude Include="InventoryItem.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Location.h" />
+    <ClInclude Include="LootItem.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerQuest.h" />
+    <ClInclude Include="Quest.h" />
+    <ClInclude Include="QuestCompletionItem.h" />
     <ClInclude Include="Weapons.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

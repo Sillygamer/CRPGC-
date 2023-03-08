@@ -10,8 +10,8 @@ public:
 	string Name;
 	string pluralName;
 
-
 	Item();
+
 	virtual ~Item();
 };
 
