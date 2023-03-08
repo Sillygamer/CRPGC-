@@ -9,7 +9,7 @@ using namespace std;
 class World
 {
 private:
-
+	//start inputing world
 public:
 	string WorldName = "Candyland";
 	vector<Location> locations;
