@@ -13,7 +13,6 @@ public:
     int ID;
     string Name;
     int maxdamage;
-    int mindamage;
     int rewardxp;
     int rewardgold;
     vector<LootItem> loottable;

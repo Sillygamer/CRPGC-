@@ -7,7 +7,7 @@ Monster::Monster()
 	ID = ID;
 	Name = Name;
 	maxdamage = maxdamage;
-	mindamage = mindamage;
+
 	rewardxp = rewardxp;
 	rewardgold = rewardgold;
 	loottable = loottable;

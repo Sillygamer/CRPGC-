@@ -5,6 +5,9 @@ World::World()
 
 
 	PopulateLocations();
+	PopulateItems();
+	PopulateMonsters();
+	PopulateQuests();
 }
 
 World::~World()
@@ -76,38 +79,143 @@ void World::PopulateLocations()
 
 void World::PopulateMonsters()
 {
-	/*
-	Monster rat = new Monster(MONSTER_ID_RAT, "Rat", 5, 3, 10, 3, 3);
-	rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_RAT_TAIL), 75, false));
-	rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_PIECE_OF_FUR), 75, true));
+	EvilGingerbreadMan.Name = "Evil Gingerbrad Man";
+	EvilGingerbreadMan.ID = MONSTER_ID_EVILGINGERBREADMAN;
+	EvilGingerbreadMan.maxdamage = 20;
+	EvilGingerbreadMan.rewardxp = 5;
+	EvilGingerbreadMan.rewardgold = 40;
+	EvilGingerbreadMan.currenthp = 20;
+	EvilGingerbreadMan.maxhp = 20;
 
-	Monster snake = new Monster(MONSTER_ID_SNAKE, "Snake", 5, 3, 10, 3, 3);
-	snake.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SNAKE_FANG), 75, false));
-	snake.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SNAKESKIN), 75, true));
-	snake.LootTable.Add(new LootItem(ItemByID(ITEM_ID_CLUB), 75, true));
 
-	Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "Giant spider", 20, 5, 40, 10, 10);
-	giantSpider.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SPIDER_FANG), 75, true));
-	giantSpider.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SPIDER_SILK), 25, false));
+	gumdropButton.Details.Name = "Gumdrop Button";
+	gumdropButton.Details.ID = ITEM_ID_GUMDROPBUTTON;
+	gumdropButton.DropPercentage = 25;
+	gumdropButton.IsDefaultItem = false;
+	gumdropButton.Details.pluralName = "Gumdrop Buttons";
+	EvilGingerbreadMan.loottable.push_back(gumdropButton);
 
-	Monsters.push_backd(rat);
-	Monsters.push_back(snake);
-	Monsters.push_back(giantSpider);
-	*/
+	GingerbreadChunk.Details.Name = "Gingerbread Chunk";
+	GingerbreadChunk.Details.ID = ITEM_ID_GINGERBREADCHUNK;
+	GingerbreadChunk.DropPercentage = 75;
+	GingerbreadChunk.IsDefaultItem = true;
+	GingerbreadChunk.Details.pluralName = "Gingerbread Chunks";
+	EvilGingerbreadMan.loottable.push_back(GingerbreadChunk);
+
+	GumdropSword.Details.Name = "Gumdrop Sword";
+	GumdropSword.Details.ID = ITEM_ID_GUMDROPSWORD;
+	GumdropSword.DropPercentage = 75;
+	GumdropSword.IsDefaultItem = true;
+	GumdropSword.Details.pluralName = "Gumdrop Swords";
+	EvilGingerbreadMan.loottable.push_back(GumdropSword);
+
+	CandyCaneWorm.Name = "Candy Cane Worm";
+	CandyCaneWorm.ID = MONSTER_ID_CANDYCANEWORM;
+	CandyCaneWorm.maxdamage = 7;
+	CandyCaneWorm.rewardxp = 3;
+	CandyCaneWorm.rewardgold = 10;
+	CandyCaneWorm.currenthp = 15;
+	CandyCaneWorm.maxhp = 10;
+
+	CandyCaneAntenne.Details.Name = "CandyCane Antennae";
+	CandyCaneAntenne.Details.ID = ITEM_ID_CANDYCANEANTENNAE;
+	CandyCaneAntenne.DropPercentage = 75;
+	CandyCaneAntenne.IsDefaultItem = true;
+	CandyCaneAntenne.Details.pluralName = "CandyCane Antennaes";
+	CandyCaneWorm.loottable.push_back(CandyCaneAntenne);
+
+	candyTooth.Details.Name = "Candy Tooth";
+	candyTooth.Details.ID = ITEM_ID_CANDYTOOTH;
+	candyTooth.DropPercentage = 75;
+	candyTooth.IsDefaultItem = false;
+	candyTooth.Details.pluralName = "Candy Teeth";
+	CandyCaneWorm.loottable.push_back(candyTooth);
+
+	LicoriceHenchmen.Name = "Licorice Henchman";
+	LicoriceHenchmen.ID = MONSTER_ID_LICORICEHENCHMAN;
+	LicoriceHenchmen.maxdamage = 7;
+	LicoriceHenchmen.rewardxp = 3;
+	LicoriceHenchmen.rewardgold = 10;
+	LicoriceHenchmen.currenthp = 15;
+	LicoriceHenchmen.maxhp = 15;
+
+	Licoricepiece.Details.Name = "Licorice Piece";
+	Licoricepiece.Details.ID = ITEM_ID_LICORICEPIECE;
+	Licoricepiece.DropPercentage = 75;
+	Licoricepiece.IsDefaultItem = true;
+	Licoricepiece.Details.pluralName = "Licorice Pieces";
+	LicoriceHenchmen.loottable.push_back(Licoricepiece);
+	
+	Licoricehat.Details.Name = "Licorice Hat";
+	Licoricehat.Details.ID = ITEM_ID_LICORICEHAT;
+	Licoricehat.DropPercentage = 75;
+	Licoricehat.IsDefaultItem = false;
+	Licoricehat.Details.pluralName = "Licorice Hats";
+	LicoriceHenchmen.loottable.push_back(Licoricehat);
+
+	Monsters.push_back(LicoriceHenchmen);
+	Monsters.push_back(CandyCaneWorm);
+	Monsters.push_back(EvilGingerbreadMan);
 }
 
 void World::PopulateItems()
 {
+	gumdropButton1.Name = "Gumdrop Button";
+	gumdropButton1.ID = ITEM_ID_GUMDROPBUTTON;
+	gumdropButton1.pluralName = "Gumdrop Buttons";
 
+	GingerbreadChunk1.Name = "Gingerbread Chunk";
+	GingerbreadChunk1.ID = ITEM_ID_GINGERBREADCHUNK;
+	GingerbreadChunk1.pluralName = "Gingerbread Chunks";
+
+	CandyCaneAntenne1.Name = "CandyCane Antennae";
+	CandyCaneAntenne1.ID = ITEM_ID_CANDYCANEANTENNAE;
+	CandyCaneAntenne1.pluralName = "CandyCane Antennaes";
+
+	GumdropSword1.Name = "Gumdrop Sword";
+	GumdropSword1.ID = ITEM_ID_GUMDROPSWORD;
+	GumdropSword1.pluralName = "Gumdrop Swords";
+	GumdropSword1.maxdamage = 10;
+	GumdropSword1.mindamage = 5;
+
+	candyTooth1.Name = "Candy Tooth";
+	candyTooth1.ID = ITEM_ID_CANDYTOOTH;
+	candyTooth1.pluralName = "Candy Teeth";
+
+	Licoricepiece1.Name = "Licorice Piece";
+	Licoricepiece1.ID = ITEM_ID_LICORICEPIECE;
+	Licoricepiece1.pluralName = "Licorice Pieces";
+
+	Licoricehat1.Name = "Licorice Hat";
+	Licoricehat1.ID = ITEM_ID_LICORICEHAT;
+	Licoricehat1.pluralName = "Licorice Hats";
+
+	CandySword.Name = "Candy Sword";
+	CandySword.ID = ITEM_ID_CANDY_SWORD;
+	CandySword.pluralName = "Candy Swords";
+	CandySword.maxdamage = 5;
+	CandySword.mindamage = 0;
+
+	healingpotion.Name = "Healing Potion";
+	healingpotion.ID = ITEM_ID_HEALING_POTION;
+	healingpotion.pluralName = "Healing Potions";
+	healingpotion.heal = 10;
+
+	Castlekeys.Name = "Castle Key";
+	Castlekeys.ID = ITEM_ID_CATSLEKEYS;
+	Castlekeys.pluralName = "Castle Keys";
+
+	Items.push_back(gumdropButton1);
+	Items.push_back(GingerbreadChunk1);
+	Items.push_back(CandyCaneAntenne1);
+	Items.push_back(candyTooth1);
+	Items.push_back(Licoricepiece1);
+	Items.push_back(Licoricehat1);
+	Items.push_back(GumdropSword1);
+	Items.push_back(CandySword);
+	Items.push_back(healingpotion);
 	//Items.push_back(new Weapons(ITEM_ID_RUSTY_SWORD, "Rusty sword", "Rusty swords", 0, 5));
-	//Items.push_back(new Item(ITEM_ID_RAT_TAIL, "Rat tail", "Rat tails"));
-	//Items.push_back(new Item(ITEM_ID_PIECE_OF_FUR, "Piece of fur", "Pieces of fur"));
-	//Items.push_back(new Item(ITEM_ID_SNAKE_FANG, "Snake fang", "Snake fangs"));
-	//Items.push_back(new Item(ITEM_ID_SNAKESKIN, "Snakeskin", "Snakeskins"));
-	//Items.push_back(new Weapons(ITEM_ID_CLUB, "Club", "Clubs", 3, 10));
 	//Items.push_back(new HealingPotion(ITEM_ID_HEALING_POTION, "Healing potion", "Healing potions", 5));
-	//Items.push_back(new Item(ITEM_ID_SPIDER_FANG, "Spider fang", "Spider fangs"));
-	//Items.push_back(new Item(ITEM_ID_SPIDER_SILK, "Spider silk", "Spider silks"));
 	//Items.push_back(new Item(ITEM_ID_ADVENTURER_PASS, "Adventurer pass", "Adventurer passes"));
 
 }
@@ -122,7 +230,27 @@ void World::ListLocations()
 		<< CandyStore.name << "\n "
 		<< LicoriceForest.name << "\n\n";
 }
-
+void World::ListItems()
+{
+	cout << " These are the Items in the world...\n\n "
+		<< CandySword.Name << "\n "
+		<< healingpotion.Name << "\n "
+		<< Castlekeys.Name << "\n "
+		<< gumdropButton.Details.Name << "\n "
+		<< GingerbreadChunk.Details.Name << "\n "
+		<< GumdropSword.Details.Name << "\n "
+		<< CandyCaneAntenne.Details.Name << "\n "
+		<< candyTooth.Details.Name << "\n "
+		<< Licoricepiece.Details.Name << "\n "
+		<< Licoricehat.Details.Name << "\n\n";
+}
+void World::ListMonsters()
+{
+	cout << " These are the Monsters in the world...\n\n "
+		<< EvilGingerbreadMan.Name << "\n "
+		<< CandyCaneWorm.Name << "\n "
+		<< LicoriceHenchmen.Name << "\n\n";
+}
 Location World::Locationbyid(int id)
 {
 	for(Location loc : locations)
@@ -136,17 +264,30 @@ Location World::Locationbyid(int id)
 
 }
 
-
-
-//need to change
-
-
-
-
-//need to change
-
-private static void PopulateQuests()
+Monster World::MonsterByID(int id)
 {
+	for (Monster monster : Monsters)
+	{
+		if (monster.ID == id)
+		{
+			return monster;
+		}
+	}
+}
+
+Quest World::QuestByID(int id)
+{
+	for (Quest quest : Quests)
+	{
+		if (quest.ID == id)
+		{
+			return quest;
+		}
+	}
+}
+
+void World::PopulateQuests()
+{/*
 	Quest clearAlchemistGarden =
 		new Quest(
 			QUEST_ID_CLEAR_ALCHEMIST_GARDEN,
@@ -168,33 +309,8 @@ private static void PopulateQuests()
 	clearFarmersField.RewardItem = ItemByID(ITEM_ID_ADVENTURER_PASS);
 
 	Quests.Add(clearAlchemistGarden);
-	Quests.Add(clearFarmersField);
+	Quests.Add(clearFarmersField);*/
 }
 
-public static Monster MonsterByID(int id)
-public static Monster MonsterByID(int id)
-{
-	for (Monster monster : Monsters)
-	{
-		if (monster.ID == id)
-		{
-			return monster;
-		}
-	}
 
-	return null;
-}
-public static Quest QuestByID(int id)
-public static Quest QuestByID(int id)
-{
-	for (Quest quest in Quests)
-	{
-		if (quest.ID == id)
-		{
-			return quest;
-		}
-	}
-
-	return null;
-}
-
+//need to change
