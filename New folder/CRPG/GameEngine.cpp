@@ -7,6 +7,7 @@ void GameEngine::Initialize()
 	world.ListLocations();
 	world.ListMonsters();
 	world.ListItems();
+	world.ListQuests();
 	//system("PAUSE");
 }
 // remember stack to push and pop menus

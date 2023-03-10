@@ -40,10 +40,6 @@ public:
 	const int MONSTER_ID_EVILGINGERBREADMAN = 1;
 	const int MONSTER_ID_CANDYCANEWORM = 2;
 	const int MONSTER_ID_LICORICEHENCHMAN = 3;
-
-	const int QUEST_ID_CLEAR_ALCHEMIST_GARDEN = 1;
-	const int QUEST_ID_CLEAR_FARMERS_FIELD = 2;
-
 	void PopulateItems();
 
 	int LOCATION_ID_GINGERBREAD_HOUSE = 1;
@@ -52,6 +48,13 @@ public:
 	int LOCATION_ID_CANDY_CASTLE = 4;
 	int LOCATION_ID_CANDY_STORE = 5;
 	int LOCATION_ID_LICORICE_FOREST = 6;
+	int LOCATION_ID_LICORICE_CASTLE = 7;
+	int LOCATION_ID_GINGERBREAD_HUT = 8;
+	int LOCATION_ID_GINGERBREAD_FOREST = 9;
+
+	int QUEST_ID_DefeatLicoriceHenchman = 1;
+	int QUEST_ID_CollectGumdrops = 2;
+	int QUEST_ID_SavetheGarden = 3;
 
 	Location GingerbreadHouse;
 	Location CandyStore;
@@ -59,6 +62,9 @@ public:
 	Location GumdropVillage;
 	Location CandyCaneForest;
 	Location LicoriceForest;
+	Location LicoriceCastle;
+	Location GingerbreadHut;
+	Location GingerbreadForest;
 	
 	LootItem gumdropButton;
 	LootItem GingerbreadChunk;
@@ -83,12 +89,20 @@ public:
 	Monster CandyCaneWorm;
 	Monster LicoriceHenchmen;
 
+	Quest DefeatLicoriceHenchman;
+	Quest CollectGumdrops;
+	Quest SavetheGarden;
+	QuestCompletionItem licoricehat;
+	QuestCompletionItem Gumdropbutton;
+	QuestCompletionItem Candyteeth;
 	void ListLocations();
 	void ListItems();
 	void ListMonsters();
+	void ListQuests();
 	Location Locationbyid(int id);
 	Monster MonsterByID(int id);
     Quest QuestByID(int id);
+    Item ItemByID(int id);
 	void PopulateQuests();
 };
 

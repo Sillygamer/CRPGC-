@@ -1,13 +1,13 @@
 #include "World.h"
 
 World::World()
-{
-
-
-	PopulateLocations();
+{	PopulateMonsters();
 	PopulateItems();
-	PopulateMonsters();
 	PopulateQuests();
+	PopulateLocations();
+
+
+
 }
 
 World::~World()
@@ -51,23 +51,52 @@ void World::PopulateLocations()
 	LicoriceForest.Description = 
 		"A dark forest of licorice. It never seems to turn day here...\n\n";
 	
+	LicoriceCastle.ID = LOCATION_ID_LICORICE_CASTLE;
+	LicoriceCastle.name = "Licorice Castle";
+	LicoriceCastle.Description = "Where Lord Licorice lives... very spooky...";
+
+	GingerbreadHut.ID = LOCATION_ID_GINGERBREAD_HUT;
+	GingerbreadHut.name = "Ginger Bread Hut";
+	GingerbreadHut.Description = "A rest place made of gingerbread";
+
+	GingerbreadForest.ID = LOCATION_ID_GINGERBREAD_FOREST;
+	GingerbreadForest.name = "The Gingerbread Forest";
+	GingerbreadHut.Description = "A forest made of gingerbread";
 	
 	GingerbreadHouse.IDlocationnorth = LOCATION_ID_CANDYCANE_FOREST;
 
 	CandyCaneForest.IDlocationnorth = LOCATION_ID_GUMDROP_VILLAGE;
 	CandyCaneForest.IDlocationsouth = LOCATION_ID_GINGERBREAD_HOUSE;
 
-	GumdropVillage.IDlocationnorth = LOCATION_ID_CANDY_CASTLE;
+	GumdropVillage.IDlocationnorth = LOCATION_ID_GINGERBREAD_HUT;
 	GumdropVillage.IDlocationeast = LOCATION_ID_LICORICE_FOREST;
 	GumdropVillage.IDlocationsouth = LOCATION_ID_CANDYCANE_FOREST;
 	GumdropVillage.IDlocationwest = LOCATION_ID_CANDY_STORE;
 
 	LicoriceForest.IDlocationwest = LOCATION_ID_GUMDROP_VILLAGE;
+	LicoriceForest.IDlocationeast = LOCATION_ID_LICORICE_CASTLE;
 
 	CandyStore.IDlocationeast = LOCATION_ID_GUMDROP_VILLAGE;
 
-	CandyCastle.IDlocationsouth = LOCATION_ID_GUMDROP_VILLAGE;
+	CandyCastle.IDlocationsouth = LOCATION_ID_GINGERBREAD_HUT;
 
+	LicoriceCastle.IDlocationwest = LOCATION_ID_LICORICE_FOREST;
+
+	GingerbreadHut.IDlocationeast = LOCATION_ID_GINGERBREAD_FOREST;
+	GingerbreadHut.IDlocationnorth = LOCATION_ID_CANDY_CASTLE;
+	GingerbreadHut.IDlocationsouth = LOCATION_ID_GUMDROP_VILLAGE;
+
+	GingerbreadForest.IDlocationwest = LOCATION_ID_GINGERBREAD_HUT;
+
+	GingerbreadHouse.questhere = QuestByID(QUEST_ID_SavetheGarden);
+	GumdropVillage.questhere = QuestByID(QUEST_ID_DefeatLicoriceHenchman);
+	GingerbreadHut.questhere = QuestByID(QUEST_ID_CollectGumdrops);
+
+	CandyCaneForest.monsterhere = MonsterByID(MONSTER_ID_CANDYCANEWORM);
+	LicoriceForest.monsterhere = MonsterByID(MONSTER_ID_LICORICEHENCHMAN);
+	GingerbreadForest.monsterhere = MonsterByID(MONSTER_ID_EVILGINGERBREADMAN);
+	
+	CandyCastle.Requiredtoenter = Castlekeys;
 
 	locations.push_back(GingerbreadHouse);
 	locations.push_back(CandyStore);
@@ -75,6 +104,9 @@ void World::PopulateLocations()
 	locations.push_back(GumdropVillage);
 	locations.push_back(CandyCaneForest);
 	locations.push_back(LicoriceForest);
+	locations.push_back(LicoriceCastle);
+	locations.push_back(GingerbreadHut);
+	locations.push_back(GingerbreadForest);
 }
 
 void World::PopulateMonsters()
@@ -228,7 +260,10 @@ void World::ListLocations()
 		<< GumdropVillage.name << "\n "
 		<< CandyCastle.name << "\n "
 		<< CandyStore.name << "\n "
-		<< LicoriceForest.name << "\n\n";
+		<< LicoriceForest.name << "\n "
+		<< LicoriceCastle.name << "\n "
+		<< GingerbreadHut.name <<"\n " 
+		<< GingerbreadForest.name << "\n\n";
 }
 void World::ListItems()
 {
@@ -251,6 +286,14 @@ void World::ListMonsters()
 		<< CandyCaneWorm.Name << "\n "
 		<< LicoriceHenchmen.Name << "\n\n";
 }
+void World::ListQuests()
+{
+	cout << " These are the Quests in the world...\n\n "
+		<< DefeatLicoriceHenchman.Name << "\n "
+		<< CollectGumdrops.Name << "\n "
+		<< SavetheGarden.Name << "\n\n";
+}
+
 Location World::Locationbyid(int id)
 {
 	for(Location loc : locations)
@@ -285,31 +328,63 @@ Quest World::QuestByID(int id)
 		}
 	}
 }
+Item World::ItemByID(int id)
+{	
+	for(Item item : Items)
+	{
+		if (item.ID == id)
+		{
+			return item;
+		}
+	}
 
+}
 void World::PopulateQuests()
-{/*
-	Quest clearAlchemistGarden =
-		new Quest(
-			QUEST_ID_CLEAR_ALCHEMIST_GARDEN,
-			"Clear the alchemist's garden",
-			"Kill rats in the alchemist's garden and bring back 3 rat tails. \nYou will receive a healing potion and 10 gold pieces.", 20, 10);
+{
+	DefeatLicoriceHenchman.ID = QUEST_ID_DefeatLicoriceHenchman;
+	DefeatLicoriceHenchman.Name = "Defeat Licorice Henchman";
+	DefeatLicoriceHenchman.Description = "Defeat Licorice henchman and bring back 5 hats as proof.\n"
+		"You will receive the castle keys and 20 gold";
+	DefeatLicoriceHenchman.rewardgold = 20;
+	DefeatLicoriceHenchman.rewardxp = 20;
+	DefeatLicoriceHenchman.RewardItem = Castlekeys;
 
-	clearAlchemistGarden.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_RAT_TAIL), 3));
+	licoricehat.Details.Name = "Licorice Hat";
+	licoricehat.Details.ID = ITEM_ID_LICORICEHAT;
+	licoricehat.Details.pluralName = "Licorice Hats";
+	licoricehat.quantity = 5;
+	DefeatLicoriceHenchman.Completionitems.push_back(licoricehat);
 
-	clearAlchemistGarden.RewardItem = ItemByID(ITEM_ID_HEALING_POTION);
+	CollectGumdrops.ID = QUEST_ID_CollectGumdrops;
+	CollectGumdrops.Name = "Collect gumdrops";
+	CollectGumdrops.Description = "evil gingerbread man stole my gumdrops. please get them back for me, there are three.\n"
+		"You will receive the health potion and 10 gold";
+	CollectGumdrops.rewardgold = 10;
+	CollectGumdrops.rewardxp = 20;
+	CollectGumdrops.RewardItem = ItemByID(ITEM_ID_HEALING_POTION);
 
-	Quest clearFarmersField =
-		new Quest(
-			QUEST_ID_CLEAR_FARMERS_FIELD,
-			"Clear the farmer's field",
-			"Kill snakes in the farmer's field and bring back 3 snake fangs. \nYou will receive an adventurer's pass and 20 gold pieces.", 20, 20);
+	Gumdropbutton.Details.Name = "Gumdrop Button";
+	Gumdropbutton.Details.ID = ITEM_ID_GUMDROPBUTTON;
+	Gumdropbutton.Details.pluralName = "Gumdrop Buttons";
+	Gumdropbutton.quantity = 3;
+	CollectGumdrops.Completionitems.push_back(Gumdropbutton);
 
-	clearFarmersField.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_SNAKE_FANG), 3));
+	SavetheGarden.ID = QUEST_ID_SavetheGarden;
+	SavetheGarden.Name = "Save the Garden";
+	SavetheGarden.Description = "While you are staying at the house can you bring me back 5 candy teeth. Those candy worms have been destroying my garden.\n"
+		"You will receive 20 gold";
+	SavetheGarden.rewardgold = 20;
+	SavetheGarden.rewardxp = 20;
 
-	clearFarmersField.RewardItem = ItemByID(ITEM_ID_ADVENTURER_PASS);
+	Candyteeth.Details.Name = "Candy tooth";
+	Candyteeth.Details.ID = ITEM_ID_CANDYTOOTH;
+	Candyteeth.Details.pluralName = "Candy Teeth";
+	Candyteeth.quantity = 5;
+	SavetheGarden.Completionitems.push_back(Candyteeth);
 
-	Quests.Add(clearAlchemistGarden);
-	Quests.Add(clearFarmersField);*/
+	Quests.push_back(DefeatLicoriceHenchman);
+	Quests.push_back(CollectGumdrops);
+	Quests.push_back(SavetheGarden);
 }
 
 
